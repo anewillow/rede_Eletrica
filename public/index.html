@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Elétrica - Visualização Profissional</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #b3e5fc 0%, #7ed957 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 32px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #0002;
+            padding: 32px 24px 24px 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #388e3c;
+            margin-bottom: 8px;
+        }
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #42a5f5;
+            padding: 12px 18px;
+            margin-bottom: 24px;
+            font-size: 1.05em;
+        }
+        #svgNetwork {
+            display: block;
+            margin: 0 auto 32px auto;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px #0002;
+            background: none;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+        }
+        .form-section {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .form-section label {
+            font-weight: 500;
+            margin-right: 8px;
+        }
+        .form-section input, .form-section select {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #bdbdbd;
+            font-size: 1em;
+        }
+        .form-section button {
+            background: #42a5f5;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-section button:hover {
+            background: #1976d2;
+        }
+        .consumers-list {
+            margin-top: 12px;
+            background: #f9fbe7;
+            border-radius: 8px;
+            padding: 12px 18px;
+            box-shadow: 0 1px 4px #0001;
+        }
+        .consumers-list h2 {
+            font-size: 1.1em;
+            color: #388e3c;
+            margin-bottom: 8px;
+        }
+        .consumer-item {
+            padding: 6px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .consumer-item:last-child {
+            border-bottom: none;
+        }
+        .status {
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rede Elétrica - Visualização Profissional</h1>
+        <!-- Instruções removidas conforme solicitado -->
+        <svg id="svgNetwork"></svg>
+        <form class="form-section" id="formCadastro">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo">
+                <option value="residencial">Residencial</option>
+                <option value="comercial">Comercial</option>
+                <option value="industrial">Industrial</option>
+            </select>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="on">ON</option>
+                <option value="off">OFF</option>
+            </select>
+            <button type="submit">Cadastrar Consumidor</button>
+        </form>
+        <div class="consumers-list" id="listaConsumidores">
+            <h2>Consumidores cadastrados</h2>
+            <!-- Lista dinâmica -->
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
