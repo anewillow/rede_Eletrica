@@ -242,7 +242,7 @@ function renderNetwork() {
 		iconGroup.setAttribute('transform', `translate(${pos.x},${pos.y}) scale(0.7)`);
 		iconGroup.setAttribute('filter', `drop-shadow(0px 2px 6px ${style.shadow})`);
 		if (pos.tipo === 'hidreletrica') {
-			// Ícone realista de hidrelétrica: barragem, água e casa de máquinas
+			// Ícone hidrelétrica:
 			// Centraliza o ícone acima do nó principal
 			let hidroGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 			hidroGroup.setAttribute('transform', 'translate(0,-48) scale(1.15)');
@@ -376,7 +376,7 @@ function renderNetwork() {
 			nametxt.textContent = pos.nome;
 			svg.appendChild(nametxt);
 		}
-		// Não exibir nome/ID para transformador
+		
 	});
 	// Casas conectadas
 	conexoes.forEach((con, idx) => {
