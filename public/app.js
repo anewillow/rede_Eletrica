@@ -61,8 +61,7 @@ function renderNetwork() {
 	while (svg.firstChild) svg.removeChild(svg.firstChild);
 
 	// Fundo
-	// Fundo sólido moderno
-	// Fundo branco com campo verde e céu azul suave
+	// Fundo branco com campo verde e céu azul 
 	const sky = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 	sky.setAttribute('x', 0);
 	sky.setAttribute('y', 0);
@@ -78,7 +77,7 @@ function renderNetwork() {
 	field.setAttribute('fill', '#c8e6c9'); // verde suave
 	svg.appendChild(field);
 
-	// Estradas com preenchimento suave
+	// Estradas
 	const roadH = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 	roadH.setAttribute('x', 0);
 	roadH.setAttribute('y', 400);
@@ -123,7 +122,7 @@ function renderNetwork() {
 		}
 	});
 
-	// Árvores com cor suave
+	// Árvores
 	const treeData = [
 		{cx: 60, cy: 420}, {cx: 180, cy: 440}, {cx: 300, cy: 430},
 		{cx: 500, cy: 440}, {cx: 620, cy: 420}, {cx: 740, cy: 440}
@@ -149,7 +148,7 @@ function renderNetwork() {
 		svg.appendChild(trunk);
 	});
 
-	// Estilo dos nós com cor suave
+	// nós 
 	const nodeStyle = {
 		geradora: { color: '#388e3c', border: '#1b5e20', text: '#fff', r: 28, shadow: '#2e7d32' },
 		subestacao: { color: '#ffb300', border: '#f57c00', text: '#fff', r: 26, shadow: '#fbc02d' },
@@ -172,7 +171,7 @@ function renderNetwork() {
 		'TransformadorX3': {x: 600, y: 300, tipo: 'transformador', nome: 'Transformador X3', id: 20},
 	};
 	// Arestas
-	// Fios realistas com curvas e terminais
+	// Fios
 	for (let v in grafo.vertices) {
 		grafo.vertices[v].forEach(dest => {
 			if (positions[v] && positions[dest]) {
@@ -181,9 +180,9 @@ function renderNetwork() {
 				const y1 = positions[v].y;
 				const x2 = positions[dest].x;
 				const y2 = positions[dest].y;
-				// Curva suave (SVG path)
+				// Curva suave
 				const mx = (x1 + x2) / 2;
-				const my = (y1 + y2) / 2 - 30; // elevação para curva
+				const my = (y1 + y2) / 2 - 30; 
 				const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 				path.setAttribute('d', `M${x1},${y1} Q${mx},${my} ${x2},${y2}`);
 				path.setAttribute('stroke', tipoLinha === 'alta' ? '#222' : '#888');
@@ -193,7 +192,7 @@ function renderNetwork() {
 				path.setAttribute('filter', 'drop-shadow(0px 1px 2px #888)');
 				svg.appendChild(path);
 
-				// Adiciona postes ao longo do fio
+				// postes
 				const numPostes = 3;
 				for (let p = 1; p < numPostes; p++) {
 					const t = p / numPostes;
@@ -288,10 +287,10 @@ function renderNetwork() {
 			door.setAttribute('stroke', '#bdb76b');
 			door.setAttribute('stroke-width', '1');
 			hidroGroup.appendChild(door);
-			// Adiciona o grupo ao ícone principal
+			// ícone principal
 			iconGroup.appendChild(hidroGroup);
 		} else if (pos.tipo === 'subestacao') {
-			// Ícone subestação: torre com grade e símbolo elétrico
+			// Ícone subestação
 			const tower = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 			tower.setAttribute('x', -14);
 			tower.setAttribute('y', -16);
@@ -351,7 +350,7 @@ function renderNetwork() {
 			}
 		}
 		svg.appendChild(iconGroup);
-		// Exibir nome e ID apenas para geradora e subestacao
+		// nome e ID apenas para geradora e subestacao
 		if (pos.tipo === 'geradora' || pos.tipo === 'subestacao') {
 			const idtxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 			idtxt.setAttribute('x', pos.x);
